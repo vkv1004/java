@@ -83,6 +83,44 @@ public class Main {
             System.out.println(sum/lngh);
         }
     }
+    //магический квадрат
+    static boolean task_8(int[][] square) {
+        int n = square.length, cn = 0;
+        int m = square[0].length;
+        if(n != m){
+            return false;
+        }
+        long sm = Arrays.stream(square[0]).sum();
+        for(int i = 0; i < n; i++){
+            if(Arrays.stream(square[i]).sum() != sm){
+                return false;
+            }
+        }
+        for (int i = 0; i < n; i++){
+            long sm_i = 0;
+            for (int j = 0; j < n; j++){
+                sm_i += square[j][i];
+            }
+            if(sm_i != sm){
+                return false;
+            }
+        }
+        long sm_0 = 0;
+        for(int i = 0; i < n; i++){
+            sm_0 += square[i][i];
+        }
+        if (sm_0 != sm){
+            return false;
+        }
+        long sm_1 = 0;
+        for(int i = 0; i < n; i++){
+            sm_1 += square[i][n-i-1];
+        }
+        if (sm_1 != sm){
+            return false;
+        }
+        return true;
+    }
     public static void task_9(int[] a) {
         // reverse
         for (int i = a.length; i >= 1; i--){
