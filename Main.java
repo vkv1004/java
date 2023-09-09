@@ -38,19 +38,26 @@ public class Main {
     }
     public static int task_4(int number) {
         // Факториал
-         if (number == 1){
-             return 1;
-         }
-         else{
-             return number*task_4(number - 1);
-         }
+        if (number < 0){
+            return 0;
+        }
+        else if ((number == 1) || (number == 0)){
+            return 1;
+        }
+        else{
+            return number*task_4(number - 1);
+        }
     }
     public static BigInteger task_5(BigInteger number) {
         // Факториал
         BigInteger value_1 = new BigInteger("-1");
+        BigInteger value1 = new BigInteger("1");
         BigInteger value_result = number.add(value_1);
-        if (number.longValue() == 1){
-            return new BigInteger("1");
+        if (number.compareTo(value1) == -1){
+            return value1;
+        }
+        else if (number.compareTo(value1) == 0){
+            return value1;
         }
         else{
             return number.multiply(task_5(value_result));
@@ -67,19 +74,19 @@ public class Main {
     }
     public static void task_7(int... numbers) {
         // Среднее арифметическое
-        int sum = IntStream.of(numbers).sum();
-        int lngh = numbers.length;
-        System.out.println(sum/lngh);
+        if (numbers.length == 0){
+            System.out.println(0);
+        }
+        else{
+            int sum = IntStream.of(numbers).sum();
+            int lngh = numbers.length;
+            System.out.println(sum/lngh);
+        }
     }
     public static void task_9(int[] a) {
         // reverse
-        int [] b;
-        b = new int[a.length];
         for (int i = a.length; i >= 1; i--){
-            b[a.length - i] = a[i-1];
-        }
-        for (int i = 0; i < a.length; i++){
-            System.out.print(b[i] + " ");
+            System.out.print(a[i - 1] + " ");
         }
     }
     public static void task_10(int[] a) {
@@ -105,17 +112,10 @@ public class Main {
                 c++;
             }
         }
-        int b[];
-        b = new int[a.length - c];
-        int j = 0;
         for (int i = 0; i < a.length; i++) {
             if (a[i] != element){
-                b[j] = a[i];
-                j++;
+                System.out.print(a[i] + " ");
             }
-        }
-        for (int i : b){
-            System.out.print(i + " ");
         }
     }
 }
