@@ -144,18 +144,25 @@ public class Main {
             System.out.print(i + " ");
         }
     }
-    public static void task_11(int[] a, int element) {
+    static int[] task_11(int[] a, int n) {
         // удаление элемента
         int c = 0;
         for (int i = 0; i < a.length; i++) {
-            if (a[i] == element){
+            if (a[i] != n){
                 c++;
             }
         }
+        int[] b = new int[c];
+        int j = 0;
         for (int i = 0; i < a.length; i++) {
-            if (a[i] != element){
-                System.out.print(a[i] + " ");
+            if (a[i] != n){
+                b[j] = a[i];
+                j++;
             }
         }
+        for(int i = 0; i < b.length; i++){
+            System.out.print(b[i] + " ");
+        }
+        return b;
     }
 }
