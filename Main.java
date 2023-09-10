@@ -51,13 +51,9 @@ public class Main {
     public static BigInteger task_5(BigInteger number) {
         // Факториал
         BigInteger value_1 = new BigInteger("-1");
-        BigInteger value1 = new BigInteger("1");
         BigInteger value_result = number.add(value_1);
-        if (number.compareTo(value1) == -1){
-            return value1;
-        }
-        else if (number.compareTo(value1) == 0){
-            return value1;
+        if (number.compareTo(BigInteger.ONE) <= 0){
+            return BigInteger.ONE;
         }
         else{
             return number.multiply(task_5(value_result));
@@ -85,7 +81,7 @@ public class Main {
     }
     //магический квадрат
     static boolean task_8(int[][] square) {
-        int n = square.length, cn = 0;
+        int n = square.length;
         int m = square[0].length;
         if(n != m){
             return false;
@@ -123,8 +119,14 @@ public class Main {
     }
     public static void task_9(int[] a) {
         // reverse
-        for (int i = a.length; i >= 1; i--){
-            System.out.print(a[i - 1] + " ");
+        int temp = 0;
+        for (int i = 0; i < a.length/2; i++){
+            temp = a[a.length - i - 1];
+            a[a.length - i - 1] = a[i];
+            a[i] = temp;
+        }
+        for(int i = 0; i < a.length; i++){
+            System.out.print(a[i] + " ");
         }
     }
     public static void task_10(int[] a) {
