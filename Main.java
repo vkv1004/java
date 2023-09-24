@@ -15,6 +15,20 @@ public class Main {
         car.startEngine();
         car.drive(200);
         car.info();
+        //Животные
+        Cat cat = new Cat("Мурзик", 5.2, 3, "Вася", "Персидский", FoodType.EXPENSIVE);
+        cat.say();
+        cat.walk();
+        cat.walk("Алиса");
+
+        Dog dog = new Dog("Шарик", 10.5, 5, "Маша", "Лабрадор", FoodType.CHEAP);
+        dog.say();
+        dog.walk();
+        dog.walk("Максим");
+
+        Parrot parrot = new Parrot("Полли", 0.3, 1, "Катя", "Бразилия", true);
+        parrot.say();
+        parrot.fly();
     }
     //Task 1
     static boolean equals(String s, String t) {
