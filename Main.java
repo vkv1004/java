@@ -1,5 +1,20 @@
 public class Main {
     public static void main(String[] args) {
+        Car car = new Car("Red", 50, "Toyota");
+        car.startEngine();
+        car.refuel(30);
+        car.drive(100);
+        car.stopEngine();
+        car.info();
+
+        car.startEngine();
+        car.drive(50);
+        car.info();
+
+        car.refuel();
+        car.startEngine();
+        car.drive(200);
+        car.info();
     }
     //Task 1
     static boolean equals(String s, String t) {
