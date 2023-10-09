@@ -50,8 +50,7 @@ public class Main {
     }
     public static BigInteger task_5(BigInteger number) {
         // Факториал
-        BigInteger value_1 = new BigInteger("-1");
-        BigInteger value_result = number.add(value_1);
+        BigInteger value_result = number.subtract(BigInteger.ONE);
         if (number.compareTo(BigInteger.ONE) <= 0){
             return BigInteger.ONE;
         }
@@ -159,9 +158,6 @@ public class Main {
                 b[j] = a[i];
                 j++;
             }
-        }
-        for(int i = 0; i < b.length; i++){
-            System.out.print(b[i] + " ");
         }
         return b;
     }
